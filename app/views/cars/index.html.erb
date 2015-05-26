@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<%= form_tag cars_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+<% end %>
+<p></p>
+<b><%= link_to 'New Car', new_car_path %></b>&nbsp;&nbsp;
+<b><%= link_to "Advanced Search", new_search_path %></b>
+<h1>Listing Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+  
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        
+  
+        
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail thumb-box">
+   Model: <%= car.model %> &nbsp; Price: <%= car.price %>
+          <h2 style="text-align:center;"><%= car.make %></h2>
+            <%= image_tag( car.image, size: "250x300" ) %>
+            <p></p>
+ <%= link_to 'Show', car %>
+ <%= link_to 'Edit', edit_car_path(car) %>
+ <%= link_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <div class="caption" style="text-align:center;">
+              
+              </div>
+ 
+ 
+          </div>
+        </div>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

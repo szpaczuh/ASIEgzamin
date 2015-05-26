@@ -1,0 +1,13 @@
+<h1>Search Result</h1>
+<% if @search.search_cars.empty? %>
+	<p>No Records Found</p>
+<% else %>
+	<% @search.search_cars.each do |c| %>
+		<div>	
+			<h1><%= c.make %></h1>
+			<p>Price: $<%= c.price %></p>
+			<p>Category: <%= c.model %></p>
+			
+		</div>
+	<% end %>
+<% end %>
